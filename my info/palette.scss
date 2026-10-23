@@ -1,0 +1,37 @@
+/* Coolors Exported Palette - https://coolors.co/000000-096727-11ce4d */
+
+/* CSS HEX */
+--black: #000000ff;
+--dark-emerald: #096727ff;
+--malachite: #11ce4dff;
+
+/* CSS HSL */
+--black: hsla(0, 0%, 0%, 1);
+--dark-emerald: hsla(139, 84%, 22%, 1);
+--malachite: hsla(139, 85%, 44%, 1);
+
+/* SCSS HEX */
+$black: #000000ff;
+$dark-emerald: #096727ff;
+$malachite: #11ce4dff;
+
+/* SCSS HSL */
+$black: hsla(0, 0%, 0%, 1);
+$dark-emerald: hsla(139, 84%, 22%, 1);
+$malachite: hsla(139, 85%, 44%, 1);
+
+/* SCSS RGB */
+$black: rgba(0, 0, 0, 1);
+$dark-emerald: rgba(9, 103, 39, 1);
+$malachite: rgba(17, 206, 77, 1);
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(0deg, #000000ff, #096727ff, #11ce4dff);
+$gradient-right: linear-gradient(90deg, #000000ff, #096727ff, #11ce4dff);
+$gradient-bottom: linear-gradient(180deg, #000000ff, #096727ff, #11ce4dff);
+$gradient-left: linear-gradient(270deg, #000000ff, #096727ff, #11ce4dff);
+$gradient-top-right: linear-gradient(45deg, #000000ff, #096727ff, #11ce4dff);
+$gradient-bottom-right: linear-gradient(135deg, #000000ff, #096727ff, #11ce4dff);
+$gradient-top-left: linear-gradient(225deg, #000000ff, #096727ff, #11ce4dff);
+$gradient-bottom-left: linear-gradient(315deg, #000000ff, #096727ff, #11ce4dff);
+$gradient-radial: radial-gradient(#000000ff, #096727ff, #11ce4dff);
