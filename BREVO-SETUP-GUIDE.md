@@ -111,9 +111,12 @@ your-project/
 ├── api/
 │   └── send-email.js   ← Vercel serverless function
 ├── vercel.json          ← Function configuration
+├── .vercelignore        ← Excludes PHP files from Vercel build
 ├── .env.local           ← Local dev only (not deployed)
 └── .env.template        ← Reference template
 ```
+
+> **Note**: `.vercelignore` excludes `send-email.php` from Vercel deployment. Vercel does not natively support PHP serverless functions — the Node.js function in `/api/send-email.js` handles all email delivery on Vercel.
 
 ### Deploy to Traditional PHP Hosting
 
@@ -188,4 +191,6 @@ your-project/
 | `send-email.php` | PHP fallback endpoint for traditional hosting (reads `.env`) |
 | `js/main.js` | Frontend AJAX handler — POSTs JSON to `/api/send-email` |
 | `vercel.json` | Vercel function configuration (10s timeout, Node 18 runtime) |
+| `.vercelignore` | Excludes PHP files from Vercel build (prevents runtime errors) |
 | `css/style.css` | Includes `.alert.success` / `.alert.error` styles for form messages |
+| `.gitignore` | Excludes `.env` and `node_modules` from version control |

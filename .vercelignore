@@ -1,0 +1,3 @@
+# Exclude PHP files from Vercel deployment
+# (Vercel does not support PHP serverless functions without explicit runtime config)
+**/*.php
