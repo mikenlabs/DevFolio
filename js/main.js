@@ -104,6 +104,57 @@
         $(this).addClass('filter-active');
         portfolioIsotope.isotope({filter: $(this).data('filter')});
     });
-    
+
+
+    // Contact form submission
+    $('#contact-form').on('submit', function (e) {
+        e.preventDefault();
+
+        var form = $(this);
+        var submitBtn = form.find('button[type="submit"]');
+        var messageBox = $('#form-message');
+
+        var formData = {
+            name: form.find('#name').val().trim(),
+            email: form.find('#email').val().trim(),
+            subject: form.find('#subject').val().trim(),
+            message: form.find('#message').val().trim()
+        };
+
+        if (!formData.name || !formData.email || !formData.message) {
+            messageBox.removeClass('success').addClass('error').html('Please fill in all required fields.').show();
+            return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            messageBox.removeClass('success').addClass('error').html('Please provide a valid email address.').show();
+            return;
+        }
+
+        submitBtn.prop('disabled', true).text('Sending...');
+
+        $.ajax({
+            url: '/api/send-email',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(formData),
+            dataType: 'json',
+            success: function (response) {
+                if (response.success) {
+                    messageBox.removeClass('error').addClass('success').html(response.message).show();
+                    form[0].reset();
+                } else {
+                    messageBox.removeClass('success').addClass('error').html(response.message).show();
+                }
+            },
+            error: function () {
+                messageBox.removeClass('success').addClass('error').html('An error occurred. Please try again later.').show();
+            },
+            complete: function () {
+                submitBtn.prop('disabled', false).text('Send Message');
+            }
+        });
+    });
+
 })(jQuery);
 
